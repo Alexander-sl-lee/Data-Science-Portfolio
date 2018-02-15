@@ -17,7 +17,7 @@ class WhirlpoolSpider(scrapy.Spider):
 
     def parse(self, response):
 
-        item = {}
+        
         
         self.log('------------------------------------')
         self.log('I just visited: ' + response.url)
@@ -29,7 +29,8 @@ class WhirlpoolSpider(scrapy.Spider):
         test = soup.find_all("div", class_="replytext bodytext")
 
         for i in test:
-            item[""]
+            item = {}
 
-        yield item
+            item["comment"] = i.text.strip()
+            yield item
 
